@@ -1,0 +1,153 @@
+/* --- 1. Variables & Global Reset --- */
+:root {
+    --cupid-pink: #ffafcc;
+    --valentine-red: #ff4d6d;
+    --love-purple: #c77dff;
+    --chocolate: #7b3f00;
+    --vanilla: #fffaf0;
+    --text-dark: #2d2d2d;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--vanilla);
+    overflow: hidden;
+}
+
+/* --- 2. Main Page Layout --- */
+#eternal {
+    background: radial-gradient(circle at center, #fff5f8, var(--cupid-pink), #a18cd1);
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    text-align: center;
+}
+
+/* --- 3. The Content Card --- */
+.content-box {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 3rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(199, 125, 255, 0.3);
+    border: 3px solid #fff;
+    max-width: 500px;
+    width: 90%;
+    z-index: 10;
+    
+    /* Entry Animation */
+    animation: slideUp 1.2s ease-out forwards;
+    opacity: 0;
+}
+
+/* --- 4. Typography & IMAGE STYLES --- */
+
+/* Main Center Image */
+.pulsing-heart {
+    width: 100px; /* Adjust size of main heart here */
+    height: auto;
+    margin-bottom: 1rem;
+    display: inline-block;
+    animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+.title-font {
+    font-family: 'Great Vibes', cursive;
+    font-size: 4rem;
+    color: var(--valentine-red);
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+    text-shadow: 2px 2px 0px rgba(255, 255, 255, 0.5);
+}
+
+.love-letter {
+    font-size: 1.1rem;
+    color: var(--chocolate);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+.signature {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.8rem;
+    color: var(--love-purple);
+    margin-top: 1rem;
+}
+
+/* --- 5. Button Styling --- */
+.restart-btn {
+    display: inline-block;
+    text-decoration: none;
+    background-color: var(--valentine-red);
+    color: white;
+    padding: 12px 35px;
+    border-radius: 50px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    box-shadow: 0 5px 15px rgba(255, 77, 109, 0.4);
+    transition: all 0.3s ease;
+}
+
+.restart-btn:hover {
+    background-color: var(--love-purple);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(199, 125, 255, 0.5);
+}
+
+.restart-btn:active {
+    transform: translateY(1px);
+}
+
+/* --- 6. Animated Background Image Hearts --- */
+.floating-hearts-bg {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+/* Styling for the background image floaters */
+.floater {
+    position: absolute;
+    bottom: -100px; /* Start below screen */
+    width: 40px;   /* Base size for floater images */
+    height: auto;
+    opacity: 0.6;
+    animation: floatUp 8s linear infinite;
+}
+
+/* Randomizing positions, sizes, and delays */
+.floater:nth-child(1) { left: 10%; animation-duration: 7s; animation-delay: 0s; }
+.floater:nth-child(2) { left: 30%; animation-duration: 10s; animation-delay: 2s; width: 30px; }
+.floater:nth-child(3) { left: 50%; animation-duration: 6s; animation-delay: 4s; }
+.floater:nth-child(4) { left: 70%; animation-duration: 9s; animation-delay: 1s; width: 50px; }
+.floater:nth-child(5) { left: 85%; animation-duration: 11s; animation-delay: 3s; }
+.floater:nth-child(6) { left: 20%; animation-duration: 8s; animation-delay: 5s; width: 35px; filter: blur(2px); }
+
+/* --- 7. Keyframe Animations (Unchanged) --- */
+@keyframes slideUp {
+    0% { opacity: 0; transform: translateY(50px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes heartbeat {
+    0% { transform: scale(1); }
+    14% { transform: scale(1.2); } /* Slightly reduced scale for images looks better */
+    28% { transform: scale(1); }
+    42% { transform: scale(1.2); }
+    70% { transform: scale(1); }
+}
+
+@keyframes floatUp {
+    0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+    10% { opacity: 0.8; }
+    100% { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
+}
